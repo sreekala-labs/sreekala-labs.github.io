@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="entry">
+  <a class="entry__back" href="{{ '/' | relative_url }}">&larr; All entries</a>
+
+  <header class="entry__header">
+    {% if page.topic %}<span class="pill">{{ page.topic }}</span>{% endif %}
+    <time class="entry__date" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%B %-d, %Y" }}
+    </time>
+    <h1 class="entry__title">{{ page.title }}</h1>
+    {% if page.summary %}<p class="entry__summary">{{ page.summary }}</p>{% endif %}
+  </header>
+
+  <div class="entry__body">
+    {{ content }}
+  </div>
+</article>
