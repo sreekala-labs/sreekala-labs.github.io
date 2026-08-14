@@ -1,0 +1,30 @@
+title: "Field Notes"
+tagline: "Sreekala Hasti — a running log of what I'm studying"
+description: >-
+  Dated, topic-tagged notes on system design, SQL, agentic AI, and whatever
+  else is in front of me this week. Written in public as I prep for the next
+  role.
+url: "https://sreekala-labs.github.io"
+baseurl: ""
+author: Sreekala Hasti
+github_username: sreekala-labs
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
