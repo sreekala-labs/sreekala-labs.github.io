@@ -9,7 +9,7 @@ layout: default
   </p>
 </section>
 
-{% assign topics = site.posts | map: "topic" | uniq | sort %}
+{% assign topics = site.posts | map: "topic" | uniq | compact | sort %}
 {% if topics.size > 0 %}
 <div class="filters" role="group" aria-label="Filter by topic">
   <button class="filter is-active" data-topic="all">All</button>
