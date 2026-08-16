@@ -1,3 +1,10 @@
+---
+title: "All about Linked Lists"
+topic: Linked Lists
+summary: "Introduction, Advantages and Disadvantages of Linked Lists"
+---
+
+
 **Linked Lists**
 
 Linked list is a data structure which unlike arrays does not contiguous memory, rather gets data via random access in the heap memory.
