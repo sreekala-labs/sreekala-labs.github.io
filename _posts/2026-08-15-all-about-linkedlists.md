@@ -16,13 +16,13 @@ Linked Lists has 2 important information:
 
 In doubly linked list, there is a prev pointer which points to the previous node. 
 
-Types of Linked Lists: 
+**Types of Linked Lists:**
   * Singly Linked List - It is one way with data and next pointer.
   * Doubly Linked List - You can traverse both ways - forward and backward.
   * Circulary Linked List - The tail points to the head. 
 
 
-Complexity cheat sheet
+**Complexity cheat sheet**
 
 | Operation | Array | Singly Linked List |
 | :--------- | :----------: | ----------: |
@@ -34,14 +34,15 @@ Complexity cheat sheet
 | Delete at head	| O(n) (shift)| 	O(1)
 | Delete arbitrary node (given pointer)| 	O(n)| O(1) (singly: need prev; doubly: O(1) directly)
 
-Advantages of Linked List:
+
+**Advantages of Linked List:**
 
 1. Insertions and Deletion at the head are quicker with O(1) time complexity.
 2. Grows or shrinks without resizing or reallocation overhead.
 3. No wasted space by allocating exactly what is needed(node to node).
 4. Efficient for implementing other structures such as stacks, queues, adjacency lists for graphs, LRU caches (doubly linked list + hashmap is the classic O(1) LRU pattern)
 
-Disadvantages of Linked List: 
+**Disadvantages of Linked List: **
 
 1. Access by index is O(n) unlike Array which is O(1).
 2. Search in the linked list for a value is O(n).
