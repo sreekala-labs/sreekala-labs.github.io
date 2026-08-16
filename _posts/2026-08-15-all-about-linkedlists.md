@@ -42,7 +42,7 @@ In doubly linked list, there is a prev pointer which points to the previous node
 3. No wasted space by allocating exactly what is needed(node to node).
 4. Efficient for implementing other structures such as stacks, queues, adjacency lists for graphs, LRU caches (doubly linked list + hashmap is the classic O(1) LRU pattern)
 
-**Disadvantages of Linked List: **
+**Disadvantages of Linked List:**
 
 1. Access by index is O(n) unlike Array which is O(1).
 2. Search in the linked list for a value is O(n).
@@ -51,7 +51,7 @@ In doubly linked list, there is a prev pointer which points to the previous node
 5. More complex pointer management such as off-by-one bugs, dangling pointers, and null-pointer errors are common failure modes.
 6. Reverse traversal requires a doubly linked list (extra memory for prev pointers)
 
-Practical Use Cases
+**Practical Use Cases:**
 1. LRU Cache — doubly linked list + hashmap gives O(1) get/put/evict; this is the textbook interview implementation (Redis, browser caches, OS page-replacement mimic this pattern)
 2. Undo/Redo in editors — doubly linked list where each node is a state; back/forward navigation is O(1) pointer movement (browser history is a classic example)
 3. Music/playlist "next/prev" navigation — circular doubly linked list
