@@ -22,15 +22,8 @@ layout: default
 <div class="log">
   <div class="log__spine" aria-hidden="true"></div>
 
-  {% assign posts_by_month = site.posts | group_by_exp: "post", "post.date | date: '%B %Y'" %}
-  {% for month in posts_by_month %}
-  <div class="log__month">
-    <div class="log__month-label">
-      <span class="log__tick" aria-hidden="true"></span>
-      {{ month.name }}
-    </div>
-    <ul class="log__entries">
-      {% for post in month.items %}
+  <ul class="log__entries">
+    {% for post in site.posts %}
       <li class="log__entry" data-topic="{{ post.topic }}">
         <a class="log__entry-link" href="{{ post.url | relative_url }}">
           <time class="log__entry-date">{{ post.date | date: "%b %-d" }}</time>
@@ -39,10 +32,8 @@ layout: default
           {% if post.summary %}<span class="log__entry-summary">{{ post.summary }}</span>{% endif %}
         </a>
       </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endfor %}
+    {% endfor %}
+  </ul>
 
   {% if site.posts.size == 0 %}
   <p class="log__empty">No entries yet — the first one starts the spine.</p>
@@ -51,19 +42,14 @@ layout: default
 
 <script>
   const filters = document.querySelectorAll('.filter');
-  const entries = document.querySelectorAll('.log__entry');
   filters.forEach(btn => {
     btn.addEventListener('click', () => {
       filters.forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
       const topic = btn.dataset.topic;
-      entries.forEach(entry => {
+      document.querySelectorAll('.log__entry').forEach(entry => {
         const show = topic === 'all' || entry.dataset.topic === topic;
         entry.style.display = show ? '' : 'none';
-      });
-      document.querySelectorAll('.log__month').forEach(month => {
-        const visible = month.querySelectorAll('.log__entry:not([style*="display: none"])').length;
-        month.style.display = visible === 0 ? 'none' : '';
       });
     });
   });
