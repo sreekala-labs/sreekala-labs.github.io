@@ -23,7 +23,7 @@ layout: default
   <div class="log__spine" aria-hidden="true"></div>
 
   <ul class="log__entries">
-    {% for post in site.posts %}
+    {% for post in site.posts | sort: 'date' | reverse %}
       <li class="log__entry" data-topic="{{ post.topic }}">
         <a class="log__entry-link" href="{{ post.url | relative_url }}">
           <time class="log__entry-date">{{ post.date | date: "%b %-d" }}</time>
