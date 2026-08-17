@@ -27,6 +27,7 @@ layout: default
       <li class="log__entry" data-topic="{{ post.topic }}">
         <a class="log__entry-link" href="{{ post.url | relative_url }}">
           {% if post.topic %}<span class="pill pill--sm">{{ post.topic }}</span>{% endif %}
+          <time class="log__entry-date">{{ post.date | date: "%b %-d" }}</time>
           <span class="log__entry-title">{{ post.title }}</span>
           {% if post.summary %}<span class="log__entry-summary">{{ post.summary }}</span>{% endif %}
         </a>
