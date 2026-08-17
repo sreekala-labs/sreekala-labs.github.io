@@ -213,11 +213,12 @@ a:focus-visible, button:focus-visible {
 .log__entry { border-top: 1px solid var(--rule); }
 .log__entry:last-child { border-bottom: 1px solid var(--rule); }
 
+/* Use a flexible layout for entry items to avoid overlap between pill, date and title */
 .log__entry-link {
-  display: grid;
-  grid-template-columns: 52px auto 1fr;
-  align-items: baseline;
-  gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;          /* space between pill, date, title */
+  flex-wrap: wrap;    /* allow items to flow to the next line instead of overlapping */
   padding: 14px 10px;
   color: var(--ink);
   border-radius: 8px;
@@ -228,24 +229,31 @@ a:focus-visible, button:focus-visible {
 }
 .log__entry-link:hover .log__entry-title { color: var(--accent-blue); }
 
+.pill {
+  flex: 0 0 auto;
+  margin-right: 0.25rem;
+}
+
 .log__entry-date {
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--ink-faint);
+  flex: 0 0 auto;
 }
 
 .log__entry-title {
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 17px;
-  grid-column: 3;
+  flex: 1 1 auto;      /* allows the title to shrink/grow without forcing overlap */
+  min-width: 0;        /* important to allow proper shrinking in flex layouts */
 }
 
 .log__entry-summary {
-  grid-column: 3;
+  width: 100%;         /* summary occupies its own line */
   color: var(--ink-soft);
   font-size: 14px;
-  margin-top: 2px;
+  margin-top: 6px;
 }
 
 .log__empty {
@@ -355,12 +363,13 @@ a:focus-visible, button:focus-visible {
 /* ---- responsive ---- */
 @media (max-width: 560px) {
   .log__entry-link {
-    grid-template-columns: 1fr;
-    gap: 4px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
-  .log__entry-date { grid-column: 1; }
-  .log__entry-title { grid-column: 1; }
-  .log__entry-summary { grid-column: 1; }
+  .log__entry-date { order: 1; }
+  .log__entry-title { order: 2; }
+  .log__entry-summary { order: 3; }
   .site-header__nav { gap: 14px; }
 }
 
