@@ -33,10 +33,10 @@ The number of nodes in each linked list is in the range [1, 100].
 It is guaranteed that the list represents a number that does not have leading zeros.
 
 
-**Solution**
+**Solution:**
 
 Don't fall into the trap of converting Linked Lists to integers, add them and convert them back to a new Linked List. That was my initial thought. 
-The range here clearly says up to 100 nodes. So going to basic mathematics, where if you sum two numbers and if there is a carry, use it in the next set of numbers. This concept applies here for 
+Best solution would be to do basic elementary school mathematics, where if you sum two numbers and if there is a carry, use it in the next set of numbers. This concept applies here for 
 linked list as well.
 
 ```python
