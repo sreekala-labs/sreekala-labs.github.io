@@ -9,36 +9,17 @@ layout: default
   </p>
 </section>
 
-{% assign topics = site.posts | map: "topic" | uniq | compact | sort %}
-{% if topics.size > 0 %}
-<div class="filters" role="group" aria-label="Filter by topic">
-  <button class="filter is-active" data-topic="all">All</button>
-  {% for topic in topics %}
-    {% if topic %}<button class="filter" data-topic="{{ topic }}">{{ topic }}</button>{% endif %}
-  {% endfor %}
-</div>
+{% assign topics = site.posts | map: "topic" | uniq | sort %} {% if topics.size > 0 %}
+All {% for topic in topics %} {% if topic %}{{ topic }}{% endif %} {% endfor %}
 {% endif %}
-
-<div class="log">
-  <div class="log__spine" aria-hidden="true"></div>
-
-  <ul class="log__entries">
-    {% for post in site.posts | sort: 'date' | reverse %}
-      <li class="log__entry" data-topic="{{ post.topic }}">
-        <a class="log__entry-link" href="{{ post.url | relative_url }}">
-          {% if post.topic %}<span class="pill pill--sm">{{ post.topic }}</span>{% endif %}
-          <time class="log__entry-date">{{ post.date | date: "%b %-d" }}</time>
-          <span class="log__entry-title">{{ post.title }}</span>
-          {% if post.summary %}<span class="log__entry-summary">{{ post.summary }}</span>{% endif %}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-
-  {% if site.posts.size == 0 %}
-  <p class="log__empty">No entries yet — the first one starts the spine.</p>
-  {% endif %}
-</div>
+{% assign sorted_posts = site.posts | sort: "date" | reverse %} {% for post in sorted_posts %} {% if post.topic %}{{ post.topic }}{% endif %}
+{{ post.title }}
+{% if post.summary %}
+{{ post.summary }}
+{% endif %} Read note â†’ {% endfor %}
+{% if site.posts.size == 0 %}
+No entries yet.
+{% endif %}
 
 <script>
   const filters = document.querySelectorAll('.filter');
