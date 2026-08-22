@@ -263,36 +263,52 @@ layout: default
   let currentTopic = 'all';
 
   function initPagination() {
-    const cards = document.querySelectorAll('.post-card');
+    // Initialize filter buttons AFTER the DOM is ready so they exist
+    const filters = document.querySelectorAll('.filter');
+    filters.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        filters.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        currentTopic = (btn.dataset.topic || 'all').toLowerCase().trim();
+        currentPage = 1;
+        updateDisplay();
+        renderPaginationButtons();
+      });
+    });
+
     updateDisplay();
     renderPaginationButtons();
   }
 
-  function getVisibleCards() {
-    const cards = document.querySelectorAll('.post-card');
-    return Array.from(cards).filter(card => {
-      if (currentTopic === 'all') return true;
-      return card.dataset.topic === currentTopic;
-    });
+  function getMatchingCards() {
+    const cards = Array.from(document.querySelectorAll('.post-card'));
+    if (currentTopic === 'all') return cards;
+    return cards.filter(card => ((card.dataset.topic || '').toLowerCase().trim() === currentTopic));
   }
 
   function updateDisplay() {
-    const visibleCards = getVisibleCards();
-    const totalPages = Math.ceil(visibleCards.length / CARDS_PER_PAGE);
+    const allCards = Array.from(document.querySelectorAll('.post-card'));
+    const matchingCards = getMatchingCards();
+    const totalPages = Math.ceil(matchingCards.length / CARDS_PER_PAGE);
 
     if (currentPage > totalPages && totalPages > 0) {
       currentPage = totalPages;
     }
 
-    visibleCards.forEach((card, index) => {
+    // hide everything first
+    allCards.forEach(card => { card.style.display = 'none'; });
+
+    // show matching cards for the current page
+    matchingCards.forEach((card, index) => {
       const pageNumber = Math.floor(index / CARDS_PER_PAGE) + 1;
       card.style.display = pageNumber === currentPage ? '' : 'none';
     });
   }
 
   function renderPaginationButtons() {
-    const visibleCards = getVisibleCards();
-    const totalPages = Math.ceil(visibleCards.length / CARDS_PER_PAGE);
+    const matchingCards = getMatchingCards();
+    const totalPages = Math.ceil(matchingCards.length / CARDS_PER_PAGE);
     const paginationContainer = document.getElementById('pagination');
     paginationContainer.innerHTML = '';
 
@@ -337,20 +353,6 @@ layout: default
     });
     paginationContainer.appendChild(nextBtn);
   }
-
-  // Filter buttons
-  const filters = document.querySelectorAll('.filter');
-  filters.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      filters.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      currentTopic = btn.dataset.topic;
-      currentPage = 1;
-      updateDisplay();
-      renderPaginationButtons();
-    });
-  });
 
   // Initialize on page load
   document.addEventListener('DOMContentLoaded', initPagination);
