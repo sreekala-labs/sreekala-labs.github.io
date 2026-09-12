@@ -368,6 +368,35 @@ a:focus-visible, button:focus-visible {
   margin: 32px 0;
 }
 
+/* ---- Table styling with borders ---- */
+.entry__body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  border: 2px solid var(--rule-strong);
+}
+
+.entry__body table th,
+.entry__body table td {
+  border: 1px solid var(--rule);
+  padding: 12px;
+  text-align: left;
+}
+
+.entry__body table th {
+  background-color: var(--accent-blue-soft);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.entry__body table tr:nth-child(even) {
+  background-color: var(--paper);
+}
+
+.entry__body table tr:hover {
+  background-color: var(--accent-blue-soft);
+}
+
 /* ---- about ---- */
 .about { 
   padding-bottom: 60px;
