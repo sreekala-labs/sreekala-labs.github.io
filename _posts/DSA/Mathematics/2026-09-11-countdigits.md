@@ -34,3 +34,7 @@ def countOfDigits(X):
 | 923  | 923/10 = 92 | Count = 2 |
 | 92  | 92/10 = 9 | Count = 3 |
 | 9  | 9/10 = 0 | Count = 4 |
+
+
+**Time Complexity:** O(n) 
+**Space Complexity:** O(1) 
