@@ -59,7 +59,7 @@ summary: "Some basic questions on AI and LLM fundamentals."
     
     Numeric vectors that represent meaning. Similar texts have nearby vectors, which is how RAG finds relevant documents via similarity search. 
 
-    ![Support Vector](./embeddings.gif)
+    ![Support Vector](/embeddings.gif)
     
 11. **What is a vector database?**
 
