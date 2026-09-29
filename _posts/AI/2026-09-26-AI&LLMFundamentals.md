@@ -16,7 +16,7 @@ summary: "Some basic questions on AI and LLM fundamentals with Brief Answers"
 
    The maximum number of tokens the model can see at once: system prompt, conversation history, tool results and its own output. When a long call exceeds,
    older content gets dropped or truncated, and the agent "forgets" earlier details.
-4. **What does tempature control?**
+4. **What does temperature control?**
 
    How random the output is. Low(0.0-0.3) gives consistent, predictable answers, which suits support and booking agents. High gives more varied creative
    answers but more drift. 
@@ -78,7 +78,7 @@ summary: "Some basic questions on AI and LLM fundamentals with Brief Answers"
 
     Forcing the model to return JSON that matches a schema. This is useful for extracting data after a call, such as name, intent and outcome, and
     it prevents parsing failures.
-15. **What is an AI Agent?"
+15. **What is an AI Agent?"**
    
     An LLM that runs in a loop: It decides an action, calls a tool, reads the result, and decides again until the goal is met. A voice assistant       with tools is an agent.
 16. **What is Model Context Protocol(MCP)?**
@@ -107,7 +107,7 @@ summary: "Some basic questions on AI and LLM fundamentals with Brief Answers"
 
     Rules or checks that keep the agent in scope, such as topic restrictions, content filters, output validation, and requiring confirmation before actions like      payments or cancellations. 
    
-23. **How do ylou evaluate an AI agent's quality**
+23. **How do you evaluate an AI agent's quality**
 
     Define test scenarios, run them repeatedly and score outcomes: task success, correct tool calls, latency and tone. Review call transcripts for failures, then     turn those into new test cases. 
 24. **Why might the same prompt gives different results each time?**
