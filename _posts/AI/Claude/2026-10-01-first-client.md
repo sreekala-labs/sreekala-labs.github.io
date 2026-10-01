@@ -40,7 +40,7 @@ message= client.messages.create(
     messages=[
         {
         "role":"user",
-        "content":"What is quantum computing? Answer in one sentence."
+        "content":"What is Bhagavad Githa? Answer in one sentence."
         }
     ]
 )
@@ -48,3 +48,9 @@ message= client.messages.create(
 print(message.content[0].text)
 ```
 
+```
+Output:
+The Bhagavad Gita is a 700-verse Hindu scripture embedded in the epic Mahabharata
+that presents a philosophical dialogue between Lord Krishna and the warrior
+prince Arjuna about duty, righteousness, and the nature of life.
+```
