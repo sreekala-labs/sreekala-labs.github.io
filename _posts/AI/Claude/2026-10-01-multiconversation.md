@@ -1,6 +1,6 @@
 ---
 title: "Multi-Turn Conversations in Claude"
-topic: Claude
+topic: AI > Claude
 summary: "Multi-Turn Conversations in Claude"
 ---
 
