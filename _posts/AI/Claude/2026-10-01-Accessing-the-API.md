@@ -1,6 +1,6 @@
 ---
 title: "Accessing the API"
-topic: Claude
+topic: AI > Claude
 summary: "Accessing the API(Claude)"
 ---
 
